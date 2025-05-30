@@ -3,10 +3,11 @@ from unittest.mock import patch, MagicMock
 from src.util.detector import detect_duplicates
 # develop your test cases here
 
+
 @pytest.mark.unit
-def test_detect_duplicates():
-    data ={
-        """@article{frattini2023requirements,
+def test_one_entry():
+    data = """
+    @article{frattini2023requirements,
 	title={Requirements quality research: a harmonized theory, evaluation, and roadmap},
 	  author={Frattini, Julian and Montgomery, Lloyd and Fischbach, Jannik and Mendez, Daniel and Fucci, Davide and Unterkalmsteiner, Michael},
 	  journal={Requirements Engineering},
@@ -14,7 +15,8 @@ def test_detect_duplicates():
 	  year={2023},
 	  publisher={Springer},
 	  doi={10.1007/s00766-023-00405-y}
-}"""
     }
+"""
 
-    assert detect_duplicates(data) == ValueError
+    with pytest.raises(ValueError):
+        detect_duplicates(data)
