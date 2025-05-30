@@ -50,7 +50,7 @@ def test_duplicates_same_key():
 """
         
     with patch('src.util.parser.parse') as mockedParse:
-        mockedParse.return_value = [output]
+        mockedParse.return_value = output
         duplicate = detect_duplicates(data)
         assert len(duplicate) == 1
 
@@ -80,7 +80,7 @@ def test_two_duplicates_no_key():
     }
 """
     with patch('src.util.parser.parse') as mockedParse:
-        mockedParse.return_value = [output]
+        mockedParse.return_value = output
         duplicate = detect_duplicates(data)
         assert len(duplicate) == 1
     
