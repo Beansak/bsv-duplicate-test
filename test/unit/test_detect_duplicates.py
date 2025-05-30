@@ -18,10 +18,9 @@ def test_one_entry():
     }
 """
 
-    
+    with pytest.raises(ValueError):
         
-    duplicate = detect_duplicates(data)
-    assert len(duplicate) == 0
+        detect_duplicates(data)
         
 
 @pytest.mark.unit
