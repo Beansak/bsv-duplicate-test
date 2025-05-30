@@ -46,11 +46,8 @@ def test_two_entries_same_doi():
 	  doi={10.1007/s00766-023-00405-y}
     }
 """
-
-    with pytest.raises(ValueError):
         
-        duplicate = detect_duplicates(data)
-        
-        assert len(duplicate) == 1
+    duplicate = detect_duplicates(data)
+    assert len(duplicate) == 1
 
         
