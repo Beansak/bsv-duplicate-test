@@ -64,7 +64,7 @@ def test_duplicates_no_key():
   publisher={ACM New York, NY, USA}
 }
 
-@article{frattini2023requirements,
+@@article{wagner2019status,
 	title={Requirements quality research: a harmonized theory, evaluation, and roadmap},
 	  author={Frattini, Julian and Montgomery, Lloyd and Fischbach, Jannik and Mendez, Daniel and Fucci, Davide and Unterkalmsteiner, Michael},
 	  journal={Requirements Engineering},
