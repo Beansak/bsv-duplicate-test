@@ -47,6 +47,16 @@ def test_duplicates_same_key():
 	  publisher={Springer},
 	  doi={10.1007/s00766-023-00405-y}
     }
+
+    @article{frattini2023requirements,
+	title={Requirements quality research: a harmonized theory, evaluation, and roadmap},
+	  author={Frattini, Julian and Montgomery, Lloyd and Fischbach, Jannik and Mendez, Daniel and Fucci, Davide and Unterkalmsteiner, Michael},
+	  journal={Requirements Engineering},
+	  pages={1--14},
+	  year={2023},
+	  publisher={Springer},
+	  doi={10.1007/s00766-023-00405-y}
+    }
 """
         
     with patch('src.util.parser.parse') as mockedParse:
@@ -69,6 +79,16 @@ def test_two_duplicates_no_key():
     }
 """
     output = """
+    @article{frattini2023requirements,
+	title={Requirements quality research: a harmonized theory, evaluation, and roadmap},
+	  author={Frattini, Julian and Montgomery, Lloyd and Fischbach, Jannik and Mendez, Daniel and Fucci, Davide and Unterkalmsteiner, Michael},
+	  journal={Requirements Engineering},
+	  pages={1--14},
+	  year={2023},
+	  publisher={Springer},
+	  
+    }
+
     @article{frattini2023requirements,
 	title={Requirements quality research: a harmonized theory, evaluation, and roadmap},
 	  author={Frattini, Julian and Montgomery, Lloyd and Fischbach, Jannik and Mendez, Daniel and Fucci, Davide and Unterkalmsteiner, Michael},
