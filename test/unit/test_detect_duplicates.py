@@ -17,14 +17,17 @@ def test_one_entry():
 	  doi={10.1007/s00766-023-00405-y}
     }
 """
+    mockedDAO = MagicMock()
+
+    
 
     with pytest.raises(ValueError):
-        
+        mockedDAO.parse.return_value = []
         detect_duplicates(data)
         
 
 @pytest.mark.unit
-def test_duplicates_same_key():
+def test_duplicates_same_key_DOI():
     data = """
     @article{frattini2023requirements,
 	title={Requirements quality research: a harmonized theory, evaluation, and roadmap},
@@ -35,7 +38,8 @@ def test_duplicates_same_key():
 	  publisher={Springer},
 	  doi={10.1007/s00766-023-00405-y}
     }
-
+"""
+    output = """
     @article{frattini2023requirements,
 	title={Requirements quality research: a harmonized theory, evaluation, and roadmap},
 	  author={Frattini, Julian and Montgomery, Lloyd and Fischbach, Jannik and Mendez, Daniel and Fucci, Davide and Unterkalmsteiner, Michael},
@@ -46,7 +50,8 @@ def test_duplicates_same_key():
 	  doi={10.1007/s00766-023-00405-y}
     }
 """
-        
+    mockedDAO = MagicMock()
+    mockedDAO.parse.return_value = output
     duplicate = detect_duplicates(data)
     assert len(duplicate) == 1
 
@@ -64,7 +69,7 @@ def test_duplicates_no_key():
   publisher={ACM New York, NY, USA}
 }
 
-@@article{wagner2019status,
+@article{frattini2023requirements,
 	title={Requirements quality research: a harmonized theory, evaluation, and roadmap},
 	  author={Frattini, Julian and Montgomery, Lloyd and Fischbach, Jannik and Mendez, Daniel and Fucci, Davide and Unterkalmsteiner, Michael},
 	  journal={Requirements Engineering},
